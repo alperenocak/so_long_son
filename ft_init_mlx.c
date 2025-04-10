@@ -3,16 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:07:48 by yuocak            #+#    #+#             */
-/*   Updated: 2025/04/10 18:00:20 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/04/11 00:00:52 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "minilibx/mlx.h"
 #include "ft_printf/ft_printf.h"
+
+int render(t_game *game)
+{
+    int x;
+    int y;
+
+    y = -1;
+    while (++y< game->map->height)
+    {
+        x = -1;
+        while (++x < game->map->height)
+        {
+            if (game->map->map[y][x] == '1')
+                mlx_put_image_to_window(game->mlx, game->win, game->wall, x * PIXEL, y * PIXEL);
+            else 
+                mlx_put_image_to_window(game->mlx, game->win, game->background, x * PIXEL, y * PIXEL);
+            if (game->map->map[y][x] == 'E')
+                mlx_put_image_to_window(game->mlx, game->win, game->exit, x * PIXEL, y * PIXEL);
+            else if (game->map->map[y][x] == 'C')
+                mlx_put_image_to_window(game->mlx, game->win, game->coin, x * PIXEL, y * PIXEL);
+        }
+    }
+    return(0);
+}
+
+int put_mlx(t_game *game)
+{
+    render(game);
+    mlx_put_image_to_window(game->mlx, game->win, game->player, game->player_x * PIXEL, game->player_y * PIXEL);
+    return(0);
+}
 
 int keyboard(int keycode, t_game *game)
 {

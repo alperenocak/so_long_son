@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:25:58 by yuocak            #+#    #+#             */
-/*   Updated: 2025/04/10 17:56:08 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/04/11 00:01:24 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int ac, char **av)
 		init_mlx(game);
 		mlx_hook(game->win, 2, 1L<< 0, keyboard, game);
 		mlx_hook(game->win, 17, 0, close_window, game);
+		mlx_loop_hook(game->mlx, put_mlx, game);
 		mlx_loop(game->mlx);
 	}
 	else

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 16:51:46 by iekmen            #+#    #+#             */
-/*   Updated: 2025/04/10 16:37:10 by yuocak           ###   ########.fr       */
+/*   Created: 2025/04/11 15:37:01 by yuocak            #+#    #+#             */
+/*   Updated: 2025/04/11 16:59:48 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "../libft/libft.h"
 #include "so_long.h"
 
 static char	*ft_read(char *str, int fd)

@@ -1,23 +1,23 @@
 NAME = so_long
 CC = cc 
-CFLAGS		= -Wall -Wextra -Werror -Imlx_linux -g
+CFLAGS		= -Wall -Wextra -Werror -Imlx_linux
 MLXFLAG		= -Imlx_linux -lXext -lX11 -lm -lz
-SRC			= 	ft_control.c \
-				ft_error_and_exit.c \
-				ft_init.c \
-				ft_map_control.c \
-				ft_map_create.c \
-				get_next_line.c  \
-				so_long.c \
-				ft_control_args.c \
-				flood_fill.c \
-				ft_init_mlx.c
-
+SRC			= 	src/ft_control.c \
+				src/ft_error_and_exit.c \
+				src/ft_init.c \
+				src/ft_map_control.c \
+				src/ft_map_create.c \
+				src/get_next_line.c  \
+				src/so_long.c \
+				src/ft_control_args.c \
+				src/flood_fill.c \
+				src/ft_init_mlx.c \
+				src/map_height_utils.c  
 
 LIBFT		= libft/libft.a
 FT_PRINTF	= ft_printf/libftprintf.a
 MLX			= minilibx/libmlx.a
-OBJ_DIR		=obj
+OBJ_DIR		= obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 all:		$(NAME)

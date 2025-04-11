@@ -6,28 +6,28 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 17:18:29 by yuocak            #+#    #+#             */
-/*   Updated: 2025/04/10 16:29:49 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/04/11 16:59:41 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "so_long.h"
-#include "libft/libft.h"
 
 void	ft_find_player(t_game *game)
 {
-	int	i;
-	int j;
+	int		i;
+	int		j;
 	char	**tmp_map;
 
 	tmp_map = game->map->map;
 	i = 0;
-	while(tmp_map[i])
+	while (tmp_map[i])
 	{
 		j = 0;
-		while(tmp_map[i][j])
+		while (tmp_map[i][j])
 		{
 			if (tmp_map[i][j] == 'P')
-			{				
+			{
 				game->player_x = j;
 				game->player_y = i;
 			}
@@ -52,5 +52,5 @@ t_game	*ft_initialize(char *map)
 	ft_map_checker(game);
 	ft_map_args_counter(game);
 	ft_find_player(game);
-	return(game);
+	return (game);
 }

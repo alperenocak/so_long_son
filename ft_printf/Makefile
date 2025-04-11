@@ -11,12 +11,12 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(AR) $(NAME) $?
+	@echo $(AR) $(NAME) $?
 	
 clean :
-	$(RM) $(OBJ)
+	@echo $(RM) $(OBJ)
 fclean : clean
-	$(RM) $(NAME)
+	@echo $(RM) $(NAME)
 re : fclean all
 
 .PHONY : all clean fclean re

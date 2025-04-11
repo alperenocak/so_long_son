@@ -6,24 +6,22 @@
 /*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 17:16:26 by yuocak            #+#    #+#             */
-/*   Updated: 2025/04/10 15:38:20 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/04/11 16:59:14 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "so_long.h"
-#include "libft/libft.h"
 
 void	ft_av_control(char *av)
 {
-	int i;
-	int fd;
-	
-	if (ft_strrchr(av, '/'))
-		av = ft_strrchr(av, '/') + 1;
+	int	i;
+	int	fd;
+
 	i = ft_strlen(av);
-	if (i < 5)
+	if (i < 5 || av[i - 5] == '/')
 		ft_error("Error\nInvalid map name\n", NULL);
-	else if (av[i - 4] != '.' || av[i - 3] != 'b' || av[i - 2] != 'e' || av[i - 1] != 'r')
+	else if (ft_strncmp(av + i - 4, ".ber", 4))
 		ft_error("Error\nInvalid map name\n", NULL);
 	else
 	{

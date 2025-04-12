@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuocak <yuocak@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: yuocak <yuocak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:07:48 by yuocak            #+#    #+#             */
-/*   Updated: 2025/04/11 17:03:52 by yuocak           ###   ########.fr       */
+/*   Updated: 2025/04/12 19:11:04 by yuocak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ void	init_mlx(t_game *game)
 		mlx_exit("Error\nMlx not initialize\n", game);
 	game->win = mlx_new_window(game->mlx, game->map->width * PIXEL,
 			game->map->height * PIXEL, "so_long");
-	game->player = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm", &y,
+	game->player = mlx_xpm_file_to_image(game->mlx, "textures/forest-game-player.xpm", &y,
 			&x);
-	game->coin = mlx_xpm_file_to_image(game->mlx, "textures/coin.xpm", &y, &x);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm", &y, &x);
-	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm", &y, &x);
-	game->background = mlx_xpm_file_to_image(game->mlx, "textures/bground.xpm",
+	game->coin = mlx_xpm_file_to_image(game->mlx, "textures/forest-game-collectable.xpm", &y, &x);
+	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/forest-game-exit.xpm", &y, &x);
+	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/forest-game-wall.xpm", &y, &x);
+	game->background = mlx_xpm_file_to_image(game->mlx, "textures/forest-game-floor.xpm",
 			&y, &x);
 	if (!game->win || !game->player || !game->coin || !game->exit || !game->wall
 		|| !game->background)

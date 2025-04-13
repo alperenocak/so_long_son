@@ -5,18 +5,23 @@ RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_printf.c ft_hex.c ft_int.c ft_str.c 
+OBJ_DIR		= ../obj/ft_printf
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@echo $(AR) $(NAME) $?
+	@$(AR) $(NAME) $?
+
+$(OBJ_DIR)/%.o : %.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@
 	
 clean :
-	@echo $(RM) $(OBJ)
+	@$(RM) $(OBJ)
 fclean : clean
-	@echo $(RM) $(NAME)
+	@$(RM) $(NAME)
 re : fclean all
 
 .PHONY : all clean fclean re

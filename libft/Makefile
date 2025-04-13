@@ -13,16 +13,23 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
     ft_striteri.c ft_substr.c ft_strjoin.c ft_strtrim.c \
     ft_split.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c \
     ft_putendl_fd.c ft_putnbr_fd.c
-OBJ = $(SRC:.c=.o)
+OBJ_DIR		= ../obj/libft
+
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+
 
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	@echo $(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
+    
+$(OBJ_DIR)/%.o : %.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@
 clean:
-	@echo $(RM) $(OBJ)
+	@$(RM) $(OBJ)
 fclean: clean
-	@echo $(RM) $(NAME)
+	@$(RM) $(NAME)
 re: fclean all
 
 .PHONY: all clean fclean re
